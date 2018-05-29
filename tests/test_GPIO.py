@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 # Copyright (c) 2014 Adafruit Industries
 # Author: Tony DiCola
 #
@@ -21,13 +22,13 @@
 
 import unittest
 
-from mock import Mock, patch
+from unittest.mock import Mock, patch
 
 import Adafruit_GPIO as GPIO
 import Adafruit_GPIO.SPI as SPI
 import Adafruit_GPIO.Platform as Platform
 
-from MockGPIO import MockGPIO
+from .MockGPIO import MockGPIO
 
 
 class TestBaseGPIO(unittest.TestCase):

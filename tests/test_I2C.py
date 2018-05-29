@@ -19,10 +19,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+from builtins import range
+from builtins import object
 import logging
 import unittest
 
-from mock import Mock, patch
+from unittest.mock import Mock, patch
 
 import Adafruit_GPIO.Platform as Platform
 

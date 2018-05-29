@@ -21,7 +21,7 @@
 
 import unittest
 
-from mock import Mock, patch
+from unittest.mock import Mock, patch
 
 import Adafruit_GPIO.PWM as PWM
 import Adafruit_GPIO.Platform as Platform

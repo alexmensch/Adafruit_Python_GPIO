@@ -20,7 +20,7 @@
 # THE SOFTWARE.
 import unittest
 
-from mock import Mock, patch
+from unittest.mock import Mock, patch
 
 import Adafruit_GPIO.Platform as Platform
 
@@ -39,31 +39,31 @@ class TestPlatformDetect(unittest.TestCase):
 
 class TestPiRevision(unittest.TestCase):
     def test_revision_1(self):
-        with patch('__builtin__.open') as mock_open:
+        with patch('builtins.open') as mock_open:
             handle = mock_open.return_value.__enter__.return_value
             handle.__iter__.return_value = iter(['Revision : 0000'])
             rev = Platform.pi_revision()
             self.assertEquals(rev, 1)
-        with patch('__builtin__.open') as mock_open:
+        with patch('builtins.open') as mock_open:
             handle = mock_open.return_value.__enter__.return_value
             handle.__iter__.return_value = iter(['Revision : 0002'])
             rev = Platform.pi_revision()
             self.assertEquals(rev, 1)
-        with patch('__builtin__.open') as mock_open:
+        with patch('builtins.open') as mock_open:
             handle = mock_open.return_value.__enter__.return_value
             handle.__iter__.return_value = iter(['Revision : 0003'])
             rev = Platform.pi_revision()
             self.assertEquals(rev, 1)
 
     def test_revision_2(self):
-        with patch('__builtin__.open') as mock_open:
+        with patch('builtins.open') as mock_open:
             handle = mock_open.return_value.__enter__.return_value
             handle.__iter__.return_value = iter(['Revision : 000e'])
             rev = Platform.pi_revision()
             self.assertEquals(rev, 2)
 
     def test_unknown_revision(self):
-        with patch('__builtin__.open') as mock_open:
+        with patch('builtins.open') as mock_open:
             handle = mock_open.return_value.__enter__.return_value
             handle.__iter__.return_value = iter(['foobar'])
             self.assertRaises(RuntimeError, Platform.pi_revision)
